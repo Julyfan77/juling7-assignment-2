@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KMeans Clustering Visualizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+<body>
+    <h1>KMeans Clustering Visualizer</h1>
+    <div>
+        <!-- 下拉菜单选择初始化方法 -->
+        <label for="init-method">Select Initialization Method:</label>
+        <select id="init-method" onchange="handleInitMethodChange()">
+            <option value="random">Random</option>
+            <option value="farthest">Farthest First</option>
+            <option value="kmeans++">KMeans++</option>
+            <option value="manual">Manual</option>
+        </select>
+        
+        <!-- 输入聚类数量 k -->
+        <label for="k-value">Enter number of clusters (k):</label>
+        <input type="number" id="k-value" value="3" min="1">
+
+        <!-- 初始化按钮 -->
+        <button onclick="initClusters()">Initialize Clusters</button>
+    </div>
+    
+    <div>
+        <!-- 控制按钮：下一步、生成新数据、到达收敛状态 -->
+        <button onclick="nextStep()">Next Step</button>
+        <button onclick="generateNewData()">Generate New Data</button>
+        <button onclick="converge()">Converge</button>
+    </div>
+    
+    <canvas id="kmeans-canvas"></canvas>
+</body>
+</html>
