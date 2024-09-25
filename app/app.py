@@ -78,4 +78,4 @@ def new_data():
     return jsonify({'data': data.tolist()})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=3000, debug=True)
